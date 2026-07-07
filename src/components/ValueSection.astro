@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+
+const valueProps = (await getCollection('value-props')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="value" class="max-w-screen-xl mx-auto px-6 pt-20 pb-16">
+  <div class="text-center mb-12">
+    <div class="uppercase tracking-[3px] text-xs font-semibold text-rose">WHY THIS DOMAIN STANDS OUT</div>
+    <h2 class="text-4xl md:text-5xl tracking-tighter font-semibold mt-3">A rare strategic asset</h2>
+    <p class="mt-4 max-w-md mx-auto text-gray-600">
+      Exact-match domains of this quality in high-intent beauty categories are exceptionally scarce.
+    </p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    {
+      valueProps.map(({ data }) => (
+        <div class="value-card bg-white border border-border rounded-3xl p-8">
+          <div class="w-12 h-12 bg-cream rounded-2xl flex items-center justify-center mb-6">
+            <i class={`fa-solid ${data.icon} text-3xl text-rose`} />
+          </div>
+          <h3 class="text-2xl font-semibold tracking-tight">{data.title}</h3>
+          <p class="mt-4 text-gray-600">{data.description}</p>
+          <div class="mt-6 pt-6 border-t border-border text-sm text-gray-500">
+            <span class="font-medium text-rose">Advantage:</span> {data.advantage}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<!-- Trust bar -->
+<div class="border-b border-border bg-white py-6">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="flex flex-wrap justify-center md:justify-between items-center gap-x-10 gap-y-4 text-sm">
+      <div class="text-gray-500 font-medium">Trusted by forward-thinking beauty entrepreneurs</div>
+      <div class="flex flex-wrap gap-x-8 text-xs tracking-[1.5px] font-semibold text-gray-600">
+        <div>INDEPENDENT ESTHETICIANS</div>
+        <div>PREMIUM SALONS</div>
+        <div>NATIONAL CHAINS</div>
+        <div>BEAUTY BRANDS</div>
+      </div>
+    </div>
+  </div>
+</div>

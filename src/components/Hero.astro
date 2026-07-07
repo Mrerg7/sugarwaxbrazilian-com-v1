@@ -1,0 +1,84 @@
+---
+import { ACQUISITION_MAILTO, cfImageUrl, CF_IMAGES } from '../config/site';
+
+const heroImage = cfImageUrl(CF_IMAGES.heroImageId);
+---
+
+<header class="relative overflow-hidden border-b border-border">
+  <div
+    class="absolute inset-0 z-0"
+    style={`background-image: url('${heroImage}'); background-size: cover; background-position: center;`}
+    aria-hidden="true"
+  ></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-black/25 to-cream/95" aria-hidden="true"></div>
+
+  <div class="relative z-[2] max-w-screen-xl mx-auto px-6 pt-16 pb-20 md:pt-20 md:pb-24">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-x-2 bg-white/95 px-5 py-2 rounded-3xl shadow-sm border border-border mb-8">
+        <i class="fa-solid fa-globe text-rose"></i>
+        <span class="text-sm font-semibold tracking-wider text-gray-700">PREMIUM EXACT-MATCH .COM</span>
+      </div>
+
+      <h1
+        id="domain-title"
+        class="text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-[-2.5px] font-semibold text-white drop-shadow-sm cursor-pointer"
+        title="Click to copy domain to clipboard"
+      >
+        sugarbrazilianwax.com
+      </h1>
+      <p class="mt-4 text-2xl md:text-3xl tracking-tight text-rose-light font-medium">
+        Now available for acquisition
+      </p>
+
+      <p class="mt-6 max-w-2xl mx-auto text-xl text-white/90">
+        The definitive, brandable domain for natural sugaring and gentle Brazilian wax services.
+        A rare strategic asset in one of beauty's fastest-growing categories.
+      </p>
+
+      <div class="mt-9 flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href={ACQUISITION_MAILTO}
+          class="btn-primary px-10 py-4 text-white text-lg font-semibold rounded-3xl flex items-center justify-center gap-x-3 shadow-lg shadow-rose/20"
+        >
+          <span>Inquire About Acquisition</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <a
+          href="#value"
+          class="px-10 py-4 text-lg font-semibold border border-white/40 hover:bg-white/10 text-white rounded-3xl flex items-center justify-center gap-x-3 transition-colors"
+        >
+          <span>Explore Domain Value</span>
+        </a>
+      </div>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-white/80">
+        <div class="flex items-center gap-x-2">
+          <i class="fa-solid fa-check text-emerald-400"></i>
+          <span>Exact-match keywords</span>
+        </div>
+        <div class="flex items-center gap-x-2">
+          <i class="fa-solid fa-check text-emerald-400"></i>
+          <span>Premium .com</span>
+        </div>
+        <div class="flex items-center gap-x-2">
+          <i class="fa-solid fa-check text-emerald-400"></i>
+          <span>Instant brand recognition</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const domainTitle = document.getElementById('domain-title');
+  domainTitle?.addEventListener('click', () => {
+    navigator.clipboard.writeText('sugarbrazilianwax.com').then(() => {
+      const orig = domainTitle.innerHTML;
+      domainTitle.innerHTML = 'sugarbrazilianwax.com <span class="text-sm align-super">✓ Copied</span>';
+      setTimeout(() => {
+        domainTitle.innerHTML = orig;
+      }, 1400);
+    });
+  });
+</script>

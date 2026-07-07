@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cream text-gray-800 overflow-x-hidden font-sans antialiased;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .premium-gradient {
+    background: linear-gradient(135deg, #FDF8F4 0%, #F9F5F0 100%);
+  }
+
+  .value-card {
+    transition:
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .value-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  .btn-primary {
+    @apply bg-rose hover:bg-rose-dark transition-all;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+  }
+
+  .nav-scrolled {
+    box-shadow:
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  .nav-link {
+    @apply transition-colors hover:text-rose;
+  }
+
+  .section-header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(to right, #b76e79, #d4a5a5);
+    border-radius: 3px;
+  }
+}

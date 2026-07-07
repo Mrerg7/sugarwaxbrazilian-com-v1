@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+
+const benefits = (await getCollection('sugaring-benefits')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="sugaring" class="bg-white border-y border-border py-16">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="grid md:grid-cols-12 gap-x-12 items-center">
+      <div class="md:col-span-5 mb-10 md:mb-0">
+        <div class="uppercase tracking-[3px] text-xs font-semibold text-rose">THE SERVICE BEHIND THE NAME</div>
+        <h2 class="text-4xl md:text-5xl tracking-tighter font-semibold leading-none mt-3">
+          Sugaring:<br /> The natural<br /> evolution of<br /> Brazilian waxing.
+        </h2>
+      </div>
+
+      <div class="md:col-span-7">
+        <p class="text-xl text-gray-600">
+          Sugaring is an ancient yet modern all-natural hair removal method made from simple ingredients:
+          <strong>sugar, lemon, and water</strong>. The paste is applied at near room temperature — there is zero risk of burns.
+        </p>
+
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {
+            benefits.map(({ data }) => (
+              <div class="flex gap-x-4">
+                <div class="flex-shrink-0 w-6 h-6 mt-1 text-rose">
+                  <i class="fa-solid fa-check-circle text-xl" />
+                </div>
+                <div>
+                  <div class="font-semibold">{data.title}</div>
+                  <div class="text-sm mt-1 text-gray-600">{data.description}</div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
