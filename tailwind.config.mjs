@@ -9,8 +9,9 @@ export default {
       },
       colors: {
         rose: {
-          DEFAULT: '#B76E79',
-          dark: '#9C5560',
+          DEFAULT: '#7A4048',
+          dark: '#6B3540',
+          accent: '#B76E79',
           light: '#D4A5A5',
         },
         cream: {

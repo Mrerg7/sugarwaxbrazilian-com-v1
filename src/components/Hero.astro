@@ -1,28 +1,26 @@
 ---
 import { ACQUISITION_MAILTO, cfImageUrl, CF_IMAGES, SITE } from '../config/site';
+import Icon from './Icon.astro';
 
 const heroImage = cfImageUrl(CF_IMAGES.heroImageId);
 ---
 
 <header class="relative h-screen flex items-center justify-center overflow-hidden border-b border-border">
-  <!-- Fixed parallax background -->
-  <div
-    id="hero-parallax-bg"
-    class="fixed inset-0 z-0 will-change-transform"
-    style={`
-      background-image: url('${heroImage}');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    `}
-    aria-hidden="true"
-  ></div>
+  <img
+    src={heroImage}
+    alt=""
+    width="1920"
+    height="1080"
+    fetchpriority="high"
+    decoding="async"
+    class="hero-parallax fixed inset-0 z-0 h-full w-full object-cover"
+  />
   <div class="fixed inset-0 z-[1] bg-gradient-to-b from-black/40 via-black/25 to-cream/95" aria-hidden="true"></div>
 
   <div class="relative z-[2] max-w-screen-xl mx-auto px-6 py-20 text-center">
     <div class="max-w-4xl mx-auto">
       <div class="inline-flex items-center gap-x-2 bg-white/95 px-5 py-2 rounded-3xl shadow-sm border border-border mb-8">
-        <i class="fa-solid fa-globe text-rose"></i>
+        <Icon name="globe" class="w-4 h-4 text-rose" />
         <span class="text-sm font-semibold tracking-wider text-gray-700">PREMIUM EXACT-MATCH .COM</span>
       </div>
 
@@ -45,10 +43,10 @@ const heroImage = cfImageUrl(CF_IMAGES.heroImageId);
       <div class="mt-9 flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href={ACQUISITION_MAILTO}
-          class="btn-primary px-10 py-4 text-white text-lg font-semibold rounded-3xl flex items-center justify-center gap-x-3 shadow-lg shadow-rose/20"
+          class="btn-primary px-10 py-4 text-lg font-semibold rounded-3xl flex items-center justify-center gap-x-3 shadow-lg shadow-rose-dark/20"
         >
           <span>Inquire About Acquisition</span>
-          <i class="fa-solid fa-arrow-right"></i>
+          <Icon name="arrow-right" class="w-5 h-5" />
         </a>
 
         <a
@@ -61,15 +59,15 @@ const heroImage = cfImageUrl(CF_IMAGES.heroImageId);
 
       <div class="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-white/80">
         <div class="flex items-center gap-x-2">
-          <i class="fa-solid fa-check text-emerald-400"></i>
+          <Icon name="check" class="w-4 h-4 text-emerald-400" />
           <span>Exact-match keywords</span>
         </div>
         <div class="flex items-center gap-x-2">
-          <i class="fa-solid fa-check text-emerald-400"></i>
+          <Icon name="check" class="w-4 h-4 text-emerald-400" />
           <span>Premium .com</span>
         </div>
         <div class="flex items-center gap-x-2">
-          <i class="fa-solid fa-check text-emerald-400"></i>
+          <Icon name="check" class="w-4 h-4 text-emerald-400" />
           <span>Instant brand recognition</span>
         </div>
       </div>
@@ -77,7 +75,7 @@ const heroImage = cfImageUrl(CF_IMAGES.heroImageId);
       <div class="mt-12 animate-bounce">
         <a href="#value" class="inline-flex flex-col items-center gap-y-2 text-white/60 hover:text-white transition-colors">
           <span class="text-xs uppercase tracking-[3px] font-semibold">Scroll</span>
-          <i class="fa-solid fa-chevron-down"></i>
+          <Icon name="chevron-down" class="w-4 h-4" />
         </a>
       </div>
     </div>
@@ -86,8 +84,6 @@ const heroImage = cfImageUrl(CF_IMAGES.heroImageId);
 
 <script define:vars={{ domain: SITE.domain, displayName: SITE.name }}>
   const domainTitle = document.getElementById('domain-title');
-  const parallaxBg = document.getElementById('hero-parallax-bg');
-
   domainTitle?.addEventListener('click', () => {
     navigator.clipboard.writeText(domain).then(() => {
       const orig = domainTitle.innerHTML;
@@ -97,33 +93,4 @@ const heroImage = cfImageUrl(CF_IMAGES.heroImageId);
       }, 1400);
     });
   });
-
-  function updateParallax() {
-    if (!parallaxBg) return;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
-    if (prefersReducedMotion || isCoarsePointer) {
-      parallaxBg.style.transform = 'none';
-      return;
-    }
-    const offset = window.scrollY * 0.35;
-    parallaxBg.style.transform = `translate3d(0, ${offset}px, 0)`;
-  }
-
-  let ticking = false;
-  window.addEventListener(
-    'scroll',
-    () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          updateParallax();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    },
-    { passive: true },
-  );
-
-  updateParallax();
 </script>

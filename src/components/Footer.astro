@@ -1,11 +1,11 @@
 ---
 import { ACQUISITION_MAILTO, DISCLAIMER, SITE } from '../config/site';
+import Icon from './Icon.astro';
 ---
 
 <footer class="bg-white border-t border-border">
   <div class="max-w-screen-xl mx-auto px-6 py-16">
-    <!-- Sophisticated Domain Acquisition CTA -->
-    <div class="relative overflow-hidden rounded-3xl border border-rose/25 bg-gradient-to-br from-gray-900 via-gray-950 to-rose/10 p-8 sm:p-12 mb-12">
+    <div class="relative overflow-hidden rounded-3xl border border-rose/25 bg-gradient-to-br from-gray-900 via-gray-950 to-rose-dark/20 p-8 sm:p-12 mb-12">
       <div
         class="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-rose/10 blur-3xl pointer-events-none"
         aria-hidden="true"
@@ -43,10 +43,10 @@ import { ACQUISITION_MAILTO, DISCLAIMER, SITE } from '../config/site';
           </a>
           <a
             href={ACQUISITION_MAILTO}
-            class="mt-6 inline-flex w-full items-center justify-center gap-x-3 px-6 py-4 bg-gradient-to-r from-rose to-rose-dark text-white font-extrabold rounded-2xl hover:brightness-110 transition-all"
+            class="mt-6 inline-flex w-full items-center justify-center gap-x-3 px-6 py-4 bg-gradient-to-r from-rose-dark to-[#5A2E36] text-white font-extrabold rounded-2xl hover:brightness-110 transition-all"
           >
             <span>Inquire About Acquisition</span>
-            <i class="fa-solid fa-arrow-right"></i>
+            <Icon name="arrow-right" class="w-5 h-5" />
           </a>
           <p class="mt-4 text-[11px] text-gray-500 text-center tracking-wide">
             Confidential inquiries &bull; Response within 24 hours
@@ -55,15 +55,13 @@ import { ACQUISITION_MAILTO, DISCLAIMER, SITE } from '../config/site';
       </div>
     </div>
 
-    <!-- Disclaimer -->
     <p class="text-xs text-gray-500 leading-relaxed max-w-4xl mb-10">
       {DISCLAIMER}
     </p>
 
-    <!-- Bottom bar -->
     <div class="pt-8 border-t border-border text-xs text-gray-500 flex flex-col md:flex-row gap-y-4 items-center justify-between">
       <div class="flex items-center gap-x-3">
-        <div class="w-9 h-9 bg-rose rounded-2xl flex items-center justify-center">
+        <div class="w-9 h-9 bg-rose-dark rounded-2xl flex items-center justify-center">
           <span class="text-white font-bold text-xl tracking-tighter">SB</span>
         </div>
         <div>

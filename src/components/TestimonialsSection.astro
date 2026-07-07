@@ -1,23 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
+import Stars from './Stars.astro';
 
 const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data.order - b.data.order);
-
-function renderStars(rating: number): string[] {
-  const stars: string[] = [];
-  for (let i = 1; i <= 5; i++) {
-    if (rating >= i) stars.push('fa-star');
-    else if (rating >= i - 0.5) stars.push('fa-star-half-stroke');
-    else stars.push('fa-regular fa-star');
-  }
-  return stars;
-}
 ---
 
 <section class="bg-cream-dark border-y border-border py-16">
   <div class="max-w-screen-xl mx-auto px-6">
     <div class="text-center mb-10">
-      <div class="uppercase tracking-[3px] text-xs font-semibold text-rose">WHAT SMART BUYERS SAY</div>
+      <div class="section-label">WHAT SMART BUYERS SAY</div>
       <h2 class="text-3xl md:text-4xl tracking-tighter font-semibold mt-2">
         Premium domains like this rarely stay available for long.
       </h2>
@@ -27,10 +18,8 @@ function renderStars(rating: number): string[] {
       {
         testimonials.map(({ data }) => (
           <div class="bg-white p-8 rounded-3xl border border-border">
-            <div class="flex gap-x-1 text-rose mb-5">
-              {renderStars(data.rating).map((icon) => (
-                <i class={icon.includes('fa-regular') ? icon : `fa-solid ${icon}`} />
-              ))}
+            <div class="mb-5">
+              <Stars rating={data.rating} />
             </div>
             <p class="text-gray-700">"{data.quote}"</p>
             <div class="mt-6 text-sm">

@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Icon from './Icon.astro';
 
 const benefits = (await getCollection('sugaring-benefits')).sort((a, b) => a.data.order - b.data.order);
 ---
@@ -8,7 +9,7 @@ const benefits = (await getCollection('sugaring-benefits')).sort((a, b) => a.dat
   <div class="max-w-screen-xl mx-auto px-6">
     <div class="grid md:grid-cols-12 gap-x-12 items-center">
       <div class="md:col-span-5 mb-10 md:mb-0">
-        <div class="uppercase tracking-[3px] text-xs font-semibold text-rose">THE SERVICE BEHIND THE NAME</div>
+        <div class="section-label">THE SERVICE BEHIND THE NAME</div>
         <h2 class="text-4xl md:text-5xl tracking-tighter font-semibold leading-none mt-3">
           Sugaring:<br /> The natural<br /> evolution of<br /> Brazilian waxing.
         </h2>
@@ -25,7 +26,7 @@ const benefits = (await getCollection('sugaring-benefits')).sort((a, b) => a.dat
             benefits.map(({ data }) => (
               <div class="flex gap-x-4">
                 <div class="flex-shrink-0 w-6 h-6 mt-1 text-rose">
-                  <i class="fa-solid fa-check-circle text-xl" />
+                  <Icon name="check-circle" class="w-5 h-5" />
                 </div>
                 <div>
                   <div class="font-semibold">{data.title}</div>

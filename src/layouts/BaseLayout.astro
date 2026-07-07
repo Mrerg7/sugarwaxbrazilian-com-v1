@@ -112,10 +112,12 @@ const structuredData = {
     <meta name="twitter:image:alt" content={`${SITE.name} — Premium Domain for Natural Sugaring & Brazilian Wax`} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href={OG_IMAGE} fetchpriority="high" />
     {SITE.googleSiteVerification && (
       <meta name="google-site-verification" content={SITE.googleSiteVerification} />
     )}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body>

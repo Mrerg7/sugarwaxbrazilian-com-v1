@@ -1,0 +1,103 @@
+---
+interface Props {
+  name: string;
+  class?: string;
+}
+
+const { name, class: className = 'w-5 h-5' } = Astro.props;
+const icon = name.replace(/^fa-/, '');
+---
+
+{icon === 'globe' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+  </svg>
+)}
+{icon === 'arrow-right' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </svg>
+)}
+{icon === 'check' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+    <path d="M20 6 9 17l-5-5" />
+  </svg>
+)}
+{icon === 'chevron-down' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+)}
+{icon === 'envelope' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <rect x="2" y="4" width="20" height="16" rx="2" /><path d="m2 7 10 7 10-7" />
+  </svg>
+)}
+{icon === 'bars' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M4 7h16M4 12h16M4 17h16" />
+  </svg>
+)}
+{icon === 'times' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M18 6 6 18M6 6l12 12" />
+  </svg>
+)}
+{icon === 'handshake' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+    <path d="m11 17 2 2a1 1 0 0 0 1.41 0l2.59-2.59a1 1 0 0 0 0-1.41l-3.18-3.18a2 2 0 0 0-2.83 0l-1.06 1.06M7 13l-2.5 2.5a2.12 2.12 0 0 0 0 3l3.5 3.5a2.12 2.12 0 0 0 3 0L17 19" />
+    <path d="m2 12 5-5a2.12 2.12 0 0 1 3 0l2 2M22 12l-5-5a2.12 2.12 0 0 0-3 0l-1.5 1.5" />
+  </svg>
+)}
+{icon === 'search' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
+  </svg>
+)}
+{icon === 'chart-line' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M3 3v18h18" /><path d="m7 14 4-4 3 3 5-6" />
+  </svg>
+)}
+{icon === 'user-tie' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <circle cx="12" cy="7" r="4" /><path d="M5 21v-2a7 7 0 0 1 14 0v2" /><path d="M9 14h6l-1 7H10l-1-7z" />
+  </svg>
+)}
+{icon === 'store' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M3 9 5 3h14l2 6" /><path d="M5 9v11h14V9" /><path d="M9 21V12h6v9" />
+  </svg>
+)}
+{icon === 'building' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <rect x="4" y="2" width="16" height="20" rx="1" /><path d="M9 6h1M9 10h1M9 14h1M14 6h1M14 10h1M14 14h1M9 18h6" />
+  </svg>
+)}
+{icon === 'shopping-bag' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M6 7h12l-1 13H7L6 7z" /><path d="M9 7V5a3 3 0 0 1 6 0v2" />
+  </svg>
+)}
+{icon === 'check-circle' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" />
+  </svg>
+)}
+{icon === 'star' && (
+  <svg class={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+  </svg>
+)}
+{icon === 'star-half' && (
+  <svg class={className} viewBox="0 0 24 24" aria-hidden="true">
+    <defs><clipPath id="half"><rect x="0" y="0" width="12" height="24" /></clipPath></defs>
+    <path fill="currentColor" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" clip-path="url(#half)" />
+    <path fill="none" stroke="currentColor" stroke-width="1.5" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+  </svg>
+)}
+{icon === 'star-outline' && (
+  <svg class={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+  </svg>
+)}

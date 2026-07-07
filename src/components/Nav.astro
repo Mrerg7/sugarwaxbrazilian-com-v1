@@ -1,12 +1,13 @@
 ---
 import { ACQUISITION_MAILTO, SITE } from '../config/site';
+import Icon from './Icon.astro';
 ---
 
 <nav id="navbar" class="bg-white border-b border-border sticky top-0 z-50 transition-all duration-300">
   <div class="max-w-screen-xl mx-auto">
     <div class="px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3">
       <a href="/" class="flex min-w-0 items-center gap-x-2 sm:gap-x-3">
-        <div class="w-10 h-10 shrink-0 bg-rose rounded-2xl flex items-center justify-center shadow-inner">
+        <div class="w-10 h-10 shrink-0 bg-rose-dark rounded-2xl flex items-center justify-center shadow-inner">
           <span class="text-white text-2xl font-bold tracking-tighter">SB</span>
         </div>
         <div class="min-w-0">
@@ -33,11 +34,11 @@ import { ACQUISITION_MAILTO, SITE } from '../config/site';
         </a>
         <a
           href={ACQUISITION_MAILTO}
-          class="btn-primary text-white px-4 sm:px-7 py-2.5 min-h-11 min-w-11 text-sm font-semibold rounded-3xl shadow-sm inline-flex items-center justify-center gap-x-2"
+          class="btn-primary px-4 sm:px-7 py-2.5 min-h-11 min-w-11 text-sm font-semibold rounded-3xl shadow-sm inline-flex items-center justify-center gap-x-2"
           aria-label="Inquire about domain acquisition"
         >
           <span class="hidden sm:inline">Inquire Now</span>
-          <i class="fa-solid fa-envelope sm:hidden text-base"></i>
+          <Icon name="envelope" class="w-4 h-4 sm:hidden" />
         </a>
 
         <button
@@ -47,7 +48,8 @@ import { ACQUISITION_MAILTO, SITE } from '../config/site';
           aria-expanded="false"
           aria-controls="mobile-menu"
         >
-          <i class="fa-solid fa-bars text-xl"></i>
+          <Icon name="bars" class="w-5 h-5 menu-icon-open" />
+          <Icon name="times" class="w-5 h-5 menu-icon-close hidden" />
         </button>
       </div>
     </div>
@@ -61,7 +63,7 @@ import { ACQUISITION_MAILTO, SITE } from '../config/site';
       <div class="pt-3 border-t">
         <a
           href={ACQUISITION_MAILTO}
-          class="block w-full py-3 text-center text-sm font-semibold bg-rose text-white rounded-3xl"
+          class="block w-full py-3 text-center text-sm font-semibold bg-rose-dark text-white rounded-3xl"
         >
           Inquire About Acquisition
         </a>
@@ -74,6 +76,8 @@ import { ACQUISITION_MAILTO, SITE } from '../config/site';
   const navbar = document.getElementById('navbar');
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
+  const iconOpen = btn?.querySelector('.menu-icon-open');
+  const iconClose = btn?.querySelector('.menu-icon-close');
 
   window.addEventListener('scroll', () => {
     if (!navbar) return;
@@ -89,16 +93,16 @@ import { ACQUISITION_MAILTO, SITE } from '../config/site';
     const isOpen = !menu.classList.contains('hidden');
     menu.classList.toggle('hidden', isOpen);
     btn.setAttribute('aria-expanded', String(!isOpen));
-    btn.innerHTML = isOpen
-      ? '<i class="fa-solid fa-bars text-xl"></i>'
-      : '<i class="fa-solid fa-times text-xl"></i>';
+    iconOpen?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
   });
 
   menu?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       menu?.classList.add('hidden');
       btn?.setAttribute('aria-expanded', 'false');
-      if (btn) btn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
     });
   });
 </script>
