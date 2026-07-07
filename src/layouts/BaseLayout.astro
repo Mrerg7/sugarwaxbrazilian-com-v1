@@ -49,7 +49,7 @@ const structuredData = {
     {
       '@type': 'Product',
       '@id': `${SITE.url}/#product`,
-      name: 'sugarbrazilianwax.com Premium Domain Name',
+      name: `${SITE.name} Premium Domain Name`,
       description:
         'Premium exact-match .com domain for the natural sugaring and Brazilian wax industry. Available for acquisition.',
       url: SITE.url,
@@ -57,7 +57,7 @@ const structuredData = {
       category: 'Premium Domain Name',
       brand: {
         '@type': 'Brand',
-        name: 'sugarbrazilianwax.com',
+        name: SITE.name,
       },
       offers: {
         '@type': 'Offer',
@@ -102,16 +102,19 @@ const structuredData = {
     <meta property="og:image:secure_url" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="sugarbrazilianwax.com — Premium Domain for Natural Sugaring & Brazilian Wax" />
+    <meta property="og:image:alt" content={`${SITE.name} — Premium Domain for Natural Sugaring & Brazilian Wax`} />
     <meta property="og:locale" content={SITE.locale} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content="sugarbrazilianwax.com — Premium Domain for Natural Sugaring & Brazilian Wax" />
+    <meta name="twitter:image:alt" content={`${SITE.name} — Premium Domain for Natural Sugaring & Brazilian Wax`} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {SITE.googleSiteVerification && (
+      <meta name="google-site-verification" content={SITE.googleSiteVerification} />
+    )}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
