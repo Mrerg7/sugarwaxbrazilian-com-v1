@@ -19,7 +19,8 @@ export function cfImageUrl(imageId: string, variant = 'public'): string {
   return `https://imagedelivery.net/${CF_IMAGES.accountHash}/${imageId}/${variant}`;
 }
 
-export const OG_IMAGE = cfImageUrl(CF_IMAGES.heroImageId);
+export const HERO_IMAGE = cfImageUrl(CF_IMAGES.heroImageId);
+export const OG_IMAGE = HERO_IMAGE;
 
 export const ACQUISITION_MAILTO = `mailto:${SITE.email}?subject=${encodeURIComponent(`${SITE.name} Domain Acquisition Inquiry`)}&body=${encodeURIComponent(`Hello,\n\nI am interested in acquiring ${SITE.domain}.\n\nIntended use:\nBudget range:\n\nThank you.`)}`;
 

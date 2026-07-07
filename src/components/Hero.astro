@@ -1,17 +1,15 @@
 ---
-import { ACQUISITION_MAILTO, cfImageUrl, CF_IMAGES, SITE } from '../config/site';
+import { ACQUISITION_MAILTO, HERO_IMAGE, SITE } from '../config/site';
 import Icon from './Icon.astro';
-
-const heroImage = cfImageUrl(CF_IMAGES.heroImageId);
 ---
 
-<header class="relative min-h-[100svh] flex items-center overflow-x-hidden border-b border-border">
+<header class="relative min-h-[100svh] flex items-center overflow-x-hidden border-b border-border bg-gray-900">
   <img
-    src={heroImage}
+    src={HERO_IMAGE}
     alt=""
     width="1920"
     height="1080"
-    fetchpriority="high"
+    loading="eager"
     decoding="async"
     class="absolute inset-0 z-0 h-full w-full object-cover"
   />
