@@ -4,16 +4,16 @@ import { ACQUISITION_MAILTO, SITE } from '../config/site';
 
 <nav id="navbar" class="bg-white border-b border-border sticky top-0 z-50 transition-all duration-300">
   <div class="max-w-screen-xl mx-auto">
-    <div class="px-6 py-5 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-x-3">
-        <div class="w-10 h-10 bg-rose rounded-2xl flex items-center justify-center shadow-inner">
+    <div class="px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between gap-3">
+      <a href="/" class="flex min-w-0 items-center gap-x-2 sm:gap-x-3">
+        <div class="w-10 h-10 shrink-0 bg-rose rounded-2xl flex items-center justify-center shadow-inner">
           <span class="text-white text-2xl font-bold tracking-tighter">SB</span>
         </div>
-        <div>
-          <div class="font-semibold text-2xl tracking-tighter">
+        <div class="min-w-0">
+          <div class="font-semibold text-sm sm:text-xl md:text-2xl tracking-tighter leading-tight truncate sm:whitespace-normal">
             {SITE.name}
           </div>
-          <div class="text-[10px] text-gray-500 -mt-1 tracking-[2px]">PREMIUM DOMAIN</div>
+          <div class="hidden sm:block text-[10px] text-gray-500 -mt-1 tracking-[2px]">PREMIUM DOMAIN</div>
         </div>
       </a>
 
@@ -24,7 +24,7 @@ import { ACQUISITION_MAILTO, SITE } from '../config/site';
         <a href="#acquire" class="nav-link text-gray-700">Inquire</a>
       </div>
 
-      <div class="flex items-center gap-x-3">
+      <div class="flex shrink-0 items-center gap-x-2 sm:gap-x-3">
         <a
           href="#acquire"
           class="hidden sm:inline-flex items-center px-6 py-2.5 text-sm font-semibold text-rose hover:bg-cream rounded-3xl transition-colors border border-border"
@@ -33,15 +33,19 @@ import { ACQUISITION_MAILTO, SITE } from '../config/site';
         </a>
         <a
           href={ACQUISITION_MAILTO}
-          class="btn-primary text-white px-7 py-2.5 text-sm font-semibold rounded-3xl shadow-sm flex items-center gap-x-2"
+          class="btn-primary text-white px-4 sm:px-7 py-2.5 min-h-11 min-w-11 text-sm font-semibold rounded-3xl shadow-sm inline-flex items-center justify-center gap-x-2"
+          aria-label="Inquire about domain acquisition"
         >
-          <span>Inquire Now</span>
+          <span class="hidden sm:inline">Inquire Now</span>
+          <i class="fa-solid fa-envelope sm:hidden text-base"></i>
         </a>
 
         <button
           id="mobile-menu-btn"
-          class="md:hidden w-10 h-10 flex items-center justify-center text-gray-600 hover:text-rose"
+          class="md:hidden w-11 h-11 flex items-center justify-center text-gray-600 hover:text-rose"
           aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
         >
           <i class="fa-solid fa-bars text-xl"></i>
         </button>
@@ -84,6 +88,7 @@ import { ACQUISITION_MAILTO, SITE } from '../config/site';
     if (!menu || !btn) return;
     const isOpen = !menu.classList.contains('hidden');
     menu.classList.toggle('hidden', isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
     btn.innerHTML = isOpen
       ? '<i class="fa-solid fa-bars text-xl"></i>'
       : '<i class="fa-solid fa-times text-xl"></i>';
@@ -92,6 +97,7 @@ import { ACQUISITION_MAILTO, SITE } from '../config/site';
   menu?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       menu?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
       if (btn) btn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
     });
   });
