@@ -66,10 +66,4 @@
     background: linear-gradient(to right, #7a4048, #d4a5a5);
     border-radius: 3px;
   }
-
-  @media (min-width: 768px) {
-    .hero-parallax {
-      background-attachment: fixed;
-    }
-  }
 }

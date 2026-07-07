@@ -5,7 +5,7 @@ import Icon from './Icon.astro';
 const heroImage = cfImageUrl(CF_IMAGES.heroImageId);
 ---
 
-<header class="relative h-screen flex items-center justify-center overflow-hidden border-b border-border">
+<header class="relative isolate h-screen flex items-center justify-center overflow-hidden border-b border-border">
   <img
     src={heroImage}
     alt=""
@@ -13,9 +13,9 @@ const heroImage = cfImageUrl(CF_IMAGES.heroImageId);
     height="1080"
     fetchpriority="high"
     decoding="async"
-    class="hero-parallax fixed inset-0 z-0 h-full w-full object-cover"
+    class="absolute inset-0 z-0 h-full w-full object-cover"
   />
-  <div class="fixed inset-0 z-[1] bg-gradient-to-b from-black/40 via-black/25 to-cream/95" aria-hidden="true"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-b from-black/40 via-black/25 to-cream/95" aria-hidden="true"></div>
 
   <div class="relative z-[2] max-w-screen-xl mx-auto px-6 py-20 text-center">
     <div class="max-w-4xl mx-auto">
