@@ -7,7 +7,7 @@ export const SITE = {
   url: 'https://sugarwaxbrazilian.com',
   email: 'sales@desertrich.com',
   locale: 'en_US',
-  googleSiteVerification: '',
+  googleSiteVerification: 'dL66d2EUkVuFaUtJc1ujqNyDjeOHbjcl9BuJWBQfXzQ',
 } as const;
 
 export const CF_IMAGES = {
