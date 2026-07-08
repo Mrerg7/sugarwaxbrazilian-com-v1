@@ -1,18 +1,18 @@
 export const SITE = {
-  name: 'SugarBrazilianWax.com',
-  domain: 'sugarbrazilianwax.com',
-  title: 'SugarBrazilianWax.com • Premium Domain for Sale | Natural Sugaring & Brazilian Wax',
+  name: 'SugarWaxBrazilian.com',
+  domain: 'sugarwaxbrazilian.com',
+  title: 'sugarwaxbrazilian.com • Premium Domain for Sale | Brazilian Sugar Waxing',
   description:
-    'SugarBrazilianWax.com is now available for acquisition. Premium exact-match .com domain for the natural sugaring and Brazilian wax industry. Perfect for independent estheticians, premium salons, national chains, or e-commerce brands.',
-  url: 'https://sugarbrazilianwax.com/',
+    'Own sugarwaxbrazilian.com — the SEO-superior domain for professional Brazilian sugar waxing. Keyword-rich, brandable, and perfectly positioned for the natural hair removal market.',
+  url: 'https://sugarwaxbrazilian.com',
   email: 'sales@desertrich.com',
   locale: 'en_US',
-  googleSiteVerification: 'q9oFzaguVxzjJOjZhkSyLzj3GajHrFn9q9SGY5lrhws',
+  googleSiteVerification: '',
 } as const;
 
 export const CF_IMAGES = {
   accountHash: '-sPAUAWeA405NiWJ0SNIQA',
-  heroImageId: '3dedf6f6-971e-4ad2-9b37-e347bcb08600',
+  heroImageId: 'e31b3977-fdd0-4d57-5099-110e8c640a00',
 } as const;
 
 export function cfImageUrl(imageId: string, variant = 'public'): string {
@@ -22,7 +22,7 @@ export function cfImageUrl(imageId: string, variant = 'public'): string {
 export const HERO_IMAGE = cfImageUrl(CF_IMAGES.heroImageId);
 export const OG_IMAGE = HERO_IMAGE;
 
-export const ACQUISITION_MAILTO = `mailto:${SITE.email}?subject=${encodeURIComponent(`${SITE.name} Domain Acquisition Inquiry`)}&body=${encodeURIComponent(`Hello,\n\nI am interested in acquiring ${SITE.domain}.\n\nIntended use:\nBudget range:\n\nThank you.`)}`;
+export const ACQUISITION_MAILTO = `mailto:${SITE.email}?subject=${encodeURIComponent(`Acquisition Inquiry - ${SITE.domain}`)}&body=${encodeURIComponent(`Hello,\n\nI am interested in acquiring ${SITE.domain}. Please provide details and next steps.\n\nBest regards,`)}`;
 
 export const DISCLAIMER =
-  'This website is for demonstration and informational purposes only. It does not constitute an offer of services, a commitment to deploy, or a guarantee of outcomes. All statistics, projections, and references to specific technologies are based on publicly available information as of July 7, 2026 and are subject to change.';
+  'This website is for demonstration and informational purposes only. It does not constitute an offer of services, a commitment to deploy, or a guarantee of outcomes. All statistics, projections, and references to specific technologies are based on publicly available information as of July 8, 2026 and are subject to change.';

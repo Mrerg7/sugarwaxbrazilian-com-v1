@@ -3,39 +3,39 @@ import { ACQUISITION_MAILTO, HERO_IMAGE, SITE } from '../config/site';
 import Icon from './Icon.astro';
 ---
 
-<header class="relative min-h-[100svh] flex items-center overflow-x-hidden border-b border-border bg-gray-900">
+<header class="relative min-h-[100svh] flex items-end sm:items-center overflow-x-hidden border-b border-border bg-gray-900">
   <img
     src={HERO_IMAGE}
-    alt=""
+    alt="Professional Brazilian sugar waxing — sugarwaxbrazilian.com"
     width="1920"
     height="1080"
     loading="eager"
+    fetchpriority="high"
     decoding="async"
-    class="absolute inset-0 z-0 h-full w-full object-cover"
+    class="absolute inset-0 z-0 h-full w-full object-cover object-center"
   />
-  <div class="absolute inset-0 z-[1] bg-gradient-to-b from-black/50 via-black/35 to-black/65" aria-hidden="true"></div>
+  <div class="absolute inset-0 z-[1] bg-gradient-to-b from-black/55 via-black/40 to-black/75" aria-hidden="true"></div>
 
   <div class="relative z-[2] w-full max-w-screen-xl mx-auto px-4 sm:px-6 py-16 sm:py-20 text-center">
     <div class="max-w-4xl mx-auto">
       <div class="inline-flex items-center gap-x-2 bg-white/95 px-5 py-2 rounded-3xl shadow-sm border border-border mb-8">
-        <Icon name="globe" class="w-4 h-4 text-rose" />
-        <span class="text-sm font-semibold tracking-wider text-gray-700">PREMIUM EXACT-MATCH .COM</span>
+        <Icon name="search" class="w-4 h-4 text-rose" />
+        <span class="text-sm font-semibold tracking-wider text-gray-700">SEO SUPERIOR · KEYWORD RICH</span>
       </div>
 
       <h1
         id="domain-title"
-        class="text-[2rem] leading-tight sm:text-5xl md:text-6xl lg:text-7xl tracking-[-1.5px] sm:tracking-[-2.5px] font-semibold text-white drop-shadow-sm cursor-pointer break-words"
+        class="text-[1.85rem] leading-tight sm:text-5xl md:text-6xl lg:text-7xl tracking-[-1.5px] sm:tracking-[-2.5px] font-semibold text-white drop-shadow-sm cursor-pointer break-words"
         title="Click to copy domain to clipboard"
       >
-        {SITE.name}
+        {SITE.domain}
       </h1>
       <p class="mt-4 text-xl sm:text-2xl md:text-3xl tracking-tight text-white/90 font-medium">
-        Now available for acquisition
+        The SEO-superior domain for professional Brazilian sugar waxing.
       </p>
 
       <p class="mt-6 max-w-2xl mx-auto text-base sm:text-xl text-white/90">
-        The definitive, brandable domain for natural sugaring and gentle Brazilian wax services.
-        A rare strategic asset in one of beauty's fastest-growing categories.
+        Own the exact phrase clients search for. Premium positioning in the growing natural hair removal market.
       </p>
 
       <div class="mt-9 flex flex-col sm:flex-row gap-4 justify-center">
@@ -43,22 +43,22 @@ import Icon from './Icon.astro';
           href={ACQUISITION_MAILTO}
           class="btn-primary px-10 py-4 text-lg font-semibold rounded-3xl flex items-center justify-center gap-x-3 shadow-lg shadow-rose-dark/20"
         >
-          <span>Inquire About Acquisition</span>
+          <span>Inquire to Acquire</span>
           <Icon name="arrow-right" class="w-5 h-5" />
         </a>
 
         <a
-          href="#value"
+          href="#market"
           class="px-10 py-4 text-lg font-semibold border border-white/40 hover:bg-white/10 text-white rounded-3xl flex items-center justify-center gap-x-3 transition-colors"
         >
-          <span>Explore Domain Value</span>
+          <span>Explore Revenue Potential</span>
         </a>
       </div>
 
       <div class="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-white/80">
         <div class="flex items-center gap-x-2">
           <Icon name="check" class="w-4 h-4 text-emerald-400" />
-          <span>Exact-match keywords</span>
+          <span>Exact high-intent keywords</span>
         </div>
         <div class="flex items-center gap-x-2">
           <Icon name="check" class="w-4 h-4 text-emerald-400" />
@@ -66,7 +66,7 @@ import Icon from './Icon.astro';
         </div>
         <div class="flex items-center gap-x-2">
           <Icon name="check" class="w-4 h-4 text-emerald-400" />
-          <span>Instant brand recognition</span>
+          <span>Brandable & memorable</span>
         </div>
       </div>
 
@@ -80,12 +80,12 @@ import Icon from './Icon.astro';
   </div>
 </header>
 
-<script define:vars={{ domain: SITE.domain, displayName: SITE.name }}>
+<script define:vars={{ domain: SITE.domain }}>
   const domainTitle = document.getElementById('domain-title');
   domainTitle?.addEventListener('click', () => {
     navigator.clipboard.writeText(domain).then(() => {
       const orig = domainTitle.innerHTML;
-      domainTitle.innerHTML = `${displayName} <span class="text-sm align-super">✓ Copied</span>`;
+      domainTitle.innerHTML = `${domain} <span class="text-sm align-super">✓ Copied</span>`;
       setTimeout(() => {
         domainTitle.innerHTML = orig;
       }, 1400);

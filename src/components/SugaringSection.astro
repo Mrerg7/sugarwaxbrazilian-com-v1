@@ -7,36 +7,33 @@ const benefits = (await getCollection('sugaring-benefits')).sort((a, b) => a.dat
 
 <section id="sugaring" class="bg-white border-y border-border py-16">
   <div class="max-w-screen-xl mx-auto px-6">
-    <div class="grid md:grid-cols-12 gap-x-12 items-center">
-      <div class="md:col-span-5 mb-10 md:mb-0">
-        <div class="section-label">THE SERVICE BEHIND THE NAME</div>
-        <h2 class="text-4xl md:text-5xl tracking-tighter font-semibold leading-none mt-3">
-          Sugaring:<br /> The natural<br /> evolution of<br /> Brazilian waxing.
-        </h2>
-      </div>
+    <div class="text-center mb-12">
+      <div class="section-label">NATURAL · GENTLE · EFFECTIVE</div>
+      <h2 class="text-4xl md:text-5xl tracking-tighter font-semibold mt-3">
+        The premium natural alternative to traditional Brazilian waxing
+      </h2>
+    </div>
 
-      <div class="md:col-span-7">
-        <p class="text-xl text-gray-600">
-          Sugaring is an ancient yet modern all-natural hair removal method made from simple ingredients:
-          <strong>sugar, lemon, and water</strong>. The paste is applied at near room temperature — there is zero risk of burns.
-        </p>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-10">
+      Sugar wax Brazilian (also known as Brazilian sugaring) is an ancient, natural hair removal method using a paste
+      made of <strong>sugar, lemon, and water</strong>. Applied at body temperature, it is gentler on the skin than hot
+      wax and has been used for centuries for smooth, long-lasting results with fewer ingrown hairs.
+    </p>
 
-        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {
-            benefits.map(({ data }) => (
-              <div class="flex gap-x-4">
-                <div class="flex-shrink-0 w-6 h-6 mt-1 text-rose">
-                  <Icon name="check-circle" class="w-5 h-5" />
-                </div>
-                <div>
-                  <div class="font-semibold">{data.title}</div>
-                  <div class="text-sm mt-1 text-gray-600">{data.description}</div>
-                </div>
-              </div>
-            ))
-          }
-        </div>
-      </div>
+    <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      {
+        benefits.map(({ data }) => (
+          <div class="flex gap-x-4 bg-cream border border-border rounded-3xl p-7">
+            <div class="flex-shrink-0 w-6 h-6 mt-1 text-rose">
+              <Icon name="check-circle" class="w-5 h-5" />
+            </div>
+            <div>
+              <div class="font-semibold text-lg">{data.title}</div>
+              <div class="text-sm mt-1 text-gray-600">{data.description}</div>
+            </div>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

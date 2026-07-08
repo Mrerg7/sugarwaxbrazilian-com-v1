@@ -7,13 +7,13 @@ const personas = (await getCollection('buyer-personas')).sort((a, b) => a.data.o
 
 <section id="potential" class="max-w-screen-xl mx-auto px-6 pt-20 pb-16">
   <div class="text-center mb-12">
-    <div class="section-label">WHO THIS DOMAIN IS PERFECT FOR</div>
+    <div class="section-label">HIGHLY VERSATILE BRAND</div>
     <h2 class="text-4xl md:text-5xl tracking-tighter font-semibold mt-3">
-      Unlimited upside across multiple business models
+      Perfect foundation for a specialized Brazilian sugaring business
     </h2>
   </div>
 
-  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
     {
       personas.map(({ data }) => (
         <div class="bg-white border border-border rounded-3xl p-7 value-card">
@@ -29,7 +29,7 @@ const personas = (await getCollection('buyer-personas')).sort((a, b) => a.data.o
   </div>
 
   <p class="mt-10 text-center text-sm text-gray-500 max-w-lg mx-auto">
-    Whether you're a solo practitioner building your dream practice or a visionary ready to scale a national natural
-    beauty brand — this domain gives you an unfair advantage from day one.
+    Whether you're launching a boutique sugar wax studio or scaling a national natural beauty brand — this domain gives
+    you an unfair advantage from day one.
   </p>
 </section>

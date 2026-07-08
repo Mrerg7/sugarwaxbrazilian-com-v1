@@ -1,11 +1,11 @@
-name = "sugarbrazilianwax-com-v1"
-compatibility_date = "2026-07-07"
+name = "sugarwaxbrazilian-com-v1"
+compatibility_date = "2026-07-08"
 workers_dev = false
 preview_urls = false
 
 routes = [
-  { pattern = "sugarbrazilianwax.com", custom_domain = true },
-  { pattern = "www.sugarbrazilianwax.com", custom_domain = true },
+  { pattern = "sugarwaxbrazilian.com", custom_domain = true },
+  { pattern = "www.sugarwaxbrazilian.com", custom_domain = true },
 ]
 
 [assets]
