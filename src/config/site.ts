@@ -10,6 +10,13 @@ export const SITE = {
   googleSiteVerification: 'dL66d2EUkVuFaUtJc1ujqNyDjeOHbjcl9BuJWBQfXzQ',
 } as const;
 
+/** Asking price for Product/Offer structured data (must match visible page content). */
+export const DOMAIN_OFFER = {
+  price: '4995.00',
+  priceCurrency: 'USD',
+  priceValidUntil: '2027-07-09',
+} as const;
+
 export const CF_IMAGES = {
   accountHash: '-sPAUAWeA405NiWJ0SNIQA',
   heroImageId: 'e31b3977-fdd0-4d57-5099-110e8c640a00',

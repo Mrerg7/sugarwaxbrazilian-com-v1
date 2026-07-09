@@ -1,6 +1,7 @@
 ---
+import { getCollection } from 'astro:content';
 import '../styles/global.css';
-import { SITE, OG_IMAGE, ACQUISITION_MAILTO } from '../config/site';
+import { SITE, OG_IMAGE, DOMAIN_OFFER } from '../config/site';
 
 interface Props {
   title?: string;
@@ -19,6 +20,30 @@ const {
 const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
 const canonicalURL = new URL(pathname, `${SITE.url}/`);
 const publishedDate = '2026-07-08';
+const offerUrl = `${SITE.url}/#acquire`;
+
+const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data.order - b.data.order);
+const ratingValues = testimonials.map((t) => t.data.rating);
+const ratingCount = ratingValues.length;
+const ratingValue =
+  ratingCount > 0
+    ? (ratingValues.reduce((sum, value) => sum + value, 0) / ratingCount).toFixed(1)
+    : null;
+
+const reviews = testimonials.map(({ data }) => ({
+  '@type': 'Review',
+  reviewBody: data.quote,
+  reviewRating: {
+    '@type': 'Rating',
+    ratingValue: String(data.rating),
+    bestRating: '5',
+    worstRating: '1',
+  },
+  author: {
+    '@type': 'Person',
+    name: data.author,
+  },
+}));
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -46,30 +71,50 @@ const structuredData = {
         url: OG_IMAGE,
       },
     },
-    {
-      '@type': 'Product',
-      '@id': `${SITE.url}/#product`,
-      name: `${SITE.domain} Premium Domain Name`,
-      description:
-        'SEO-superior, keyword-rich .com domain for professional Brazilian sugar waxing and natural hair removal. Available for acquisition.',
-      url: SITE.url,
-      image: OG_IMAGE,
-      category: 'Premium Domain Name',
-      brand: {
-        '@type': 'Brand',
-        name: SITE.name,
-      },
-      offers: {
-        '@type': 'Offer',
-        url: ACQUISITION_MAILTO,
-        availability: 'https://schema.org/InStock',
-        seller: {
-          '@type': 'Organization',
-          name: SITE.name,
-          email: SITE.email,
-        },
-      },
-    },
+    ...(!noindex
+      ? [
+          {
+            '@type': 'Product',
+            '@id': `${SITE.url}/#product`,
+            name: `${SITE.domain} Premium Domain Name`,
+            description:
+              'SEO-superior, keyword-rich .com domain for professional Brazilian sugar waxing and natural hair removal. Available for acquisition.',
+            url: SITE.url,
+            image: OG_IMAGE,
+            category: 'Premium Domain Name',
+            brand: {
+              '@type': 'Brand',
+              name: SITE.name,
+            },
+            offers: {
+              '@type': 'Offer',
+              url: offerUrl,
+              price: DOMAIN_OFFER.price,
+              priceCurrency: DOMAIN_OFFER.priceCurrency,
+              priceValidUntil: DOMAIN_OFFER.priceValidUntil,
+              availability: 'https://schema.org/InStock',
+              itemCondition: 'https://schema.org/NewCondition',
+              seller: {
+                '@type': 'Organization',
+                name: SITE.name,
+                email: SITE.email,
+              },
+            },
+            ...(ratingValue
+              ? {
+                  aggregateRating: {
+                    '@type': 'AggregateRating',
+                    ratingValue,
+                    reviewCount: String(ratingCount),
+                    bestRating: '5',
+                    worstRating: '1',
+                  },
+                  review: reviews,
+                }
+              : {}),
+          },
+        ]
+      : []),
     {
       '@type': 'Organization',
       '@id': `${SITE.url}/#organization`,

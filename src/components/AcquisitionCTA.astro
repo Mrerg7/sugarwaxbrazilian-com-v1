@@ -1,6 +1,13 @@
 ---
-import { ACQUISITION_MAILTO, SITE } from '../config/site';
+import { ACQUISITION_MAILTO, DOMAIN_OFFER, SITE } from '../config/site';
 import Icon from './Icon.astro';
+
+const askingPrice = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: DOMAIN_OFFER.priceCurrency,
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
+}).format(Number(DOMAIN_OFFER.price));
 ---
 
 <section id="acquire" class="max-w-screen-xl mx-auto px-6 py-20">
@@ -21,7 +28,11 @@ import Icon from './Icon.astro';
         <Icon name="handshake" class="w-8 h-8 text-rose" />
       </div>
 
-      <p class="text-gray-600 mb-8">
+      <p class="text-sm uppercase tracking-[2px] text-gray-500 font-semibold">Asking price</p>
+      <p class="mt-2 text-4xl md:text-5xl font-semibold tracking-tight text-rose-dark">{askingPrice}</p>
+      <p class="mt-2 text-sm text-gray-500">USD · Offers considered</p>
+
+      <p class="text-gray-600 mt-8 mb-8">
         To inquire about acquiring <strong>{SITE.domain}</strong>, contact us directly. All inquiries are handled with
         strict confidentiality.
       </p>
