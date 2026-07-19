@@ -7,7 +7,7 @@ export const SITE = {
   url: 'https://sugarbrazilianwax.com',
   email: 'sales@desertrich.com',
   locale: 'en_US',
-  googleSiteVerification: 'dL66d2EUkVuFaUtJc1ujqNyDjeOHbjcl9BuJWBQfXzQ',
+  googleSiteVerification: 'q9oFzaguVxzjJOjZhkSyLzj3GajHrFn9q9SGY5lrhws',
 } as const;
 
 /** Asking price for Product/Offer structured data (must match visible page content). */
