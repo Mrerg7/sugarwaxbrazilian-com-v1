@@ -7,8 +7,6 @@ preview_urls = false
 routes = [
   { pattern = "sugarwaxbrazilian.com", custom_domain = true },
   { pattern = "www.sugarwaxbrazilian.com", custom_domain = true },
-  { pattern = "sugarbrazilianwax.com", custom_domain = true },
-  { pattern = "www.sugarbrazilianwax.com", custom_domain = true },
 ]
 
 [assets]
