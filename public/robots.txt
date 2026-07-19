@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sugarwaxbrazilian.com/sitemap-index.xml
+Sitemap: https://sugarbrazilianwax.com/sitemap-index.xml

@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://sugarwaxbrazilian.com',
+  site: 'https://sugarbrazilianwax.com',
   output: 'static',
   trailingSlash: 'always',
   integrations: [
