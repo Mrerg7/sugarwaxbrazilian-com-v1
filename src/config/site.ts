@@ -1,13 +1,13 @@
 export const SITE = {
-  name: 'SugarBrazilianWax.com',
-  domain: 'sugarbrazilianwax.com',
-  title: 'SugarBrazilianWax.com • Premium Domain for Sale | Brazilian Sugar Waxing',
+  name: 'SugarWaxBrazilian.com',
+  domain: 'sugarwaxbrazilian.com',
+  title: 'SugarWaxBrazilian.com • Premium Domain for Sale | Brazilian Sugar Waxing',
   description:
-    'Own SugarBrazilianWax.com — the SEO-superior domain for professional Brazilian sugar waxing. Keyword-rich, brandable, and perfectly positioned for the natural hair removal market.',
-  url: 'https://sugarbrazilianwax.com',
+    'Own SugarWaxBrazilian.com — the SEO-superior domain for professional Brazilian sugar waxing. Keyword-rich, brandable, and perfectly positioned for the natural hair removal market.',
+  url: 'https://sugarwaxbrazilian.com',
   email: 'sales@desertrich.com',
   locale: 'en_US',
-  googleSiteVerification: 'q9oFzaguVxzjJOjZhkSyLzj3GajHrFn9q9SGY5lrhws',
+  googleSiteVerification: 'dL66d2EUkVuFaUtJc1ujqNyDjeOHbjcl9BuJWBQfXzQ',
 } as const;
 
 /** Asking price for Product/Offer structured data (must match visible page content). */
